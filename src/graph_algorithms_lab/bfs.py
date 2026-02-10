@@ -1,11 +1,14 @@
+from __future__ import annotations
+
 from collections import deque
-from typing import Dict, Hashable, Iterable, List
+from collections.abc import Hashable, Iterable
 
 
-def bfs(adj: Dict[Hashable, Iterable[Hashable]], start: Hashable) -> List[Hashable]:
-    visited = {start}
-    order: List[Hashable] = []
-    q = deque([start])
+def bfs(adj: dict[Hashable, Iterable[Hashable]], start: Hashable) -> list[Hashable]:
+    """Return BFS visit order from start in an unweighted graph."""
+    visited: set[Hashable] = {start}
+    order: list[Hashable] = []
+    q: deque[Hashable] = deque([start])
 
     while q:
         u = q.popleft()
